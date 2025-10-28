@@ -59,6 +59,20 @@
                         <li>Will graduate in 2026 as an Industrial and Design and Tech Major</li>
                     </ol>
             </section>
+
+            <!-- New JS feature for updating greeting -->
+            <section class="section"> 
+                <p id="message">Click below to be shown my subject qualifications!</p>
+
+                <ul class="actions">
+                    <li><a href="javascript:void(0)" class="button small" onclick="showGreeting()">Show Qualifications</a></li>
+                </ul>
+                <script>
+                    function showGreeting() {
+                        document.getElementById("message").innerHTML = "I am qualified to teach Timber all the way to Year 12, Food Technologies all the way to Year 12, while also being qualified in Home Economics, Textiles, Metalwork, Electronics, Computing, and Junior Engineering. I also have Professional credits for Geography and Physical Education Subjects";
+                    }
+                </script>
+            </section>
         </div>
 
 
