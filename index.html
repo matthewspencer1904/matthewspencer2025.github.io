@@ -1,0 +1,125 @@
+<!-- BASED UPON "STRATA" html5UP TEMPLATE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<title>Matthew's Teaching Portfolio - Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="is-preload">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="home.html" class="image avatar">
+					<img src="images/profilepicture.png" alt="Matthew Spencer" />
+				</a>
+				<h2>Matthew Spencer</h2>
+				<h1>Teaching Portfolio</h1>
+
+				<!-- Navigation Menu -->
+				<nav>
+					<ul>
+						<li><a class="active" href="home.html">Home</a></li>
+						<li><a href="about.html">About Me</a></li>
+						<li><a href="teaching.html">Teaching Practise</a></li>
+						<li><a href="projects.html">Project Showcase</a></li>
+						<li><a href="worksamples.html">Samples of Work</a></li>
+						<li><a href="resume.html">Resume</a></li>
+						<li><a href="resources.html">Resources</a></li>
+						<li><a href="contact.html">Contact Me</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+
+
+        <div id="main">
+            <h1>Home</h1>
+            <!--exercise for title case, min length and status class-->
+                      <section class="section">  
+                <p id="greeting">Welcome!</p>
+                <input id="nameInput" class="input-spaced" type="text" placeholder="Enter Your Name"> 
+                
+                <ul class="actions">
+                    <li><button id="nameBtn" type="button" class="button small">Confirm</button></li>
+                </ul>
+            </section>
+
+            <script>
+                // Convert to title case
+                function toTitleCase(s) {
+                    return s.replace(/\w\S*/g, w => w[0].toUpperCase() + w.slice(1).toLowerCase());
+                }
+
+                // Wait for button click
+                document.getElementById("nameBtn").addEventListener("click", () => {
+                    const raw = document.getElementById("nameInput").value.trim();
+                    const greeting = document.getElementById("greeting");
+
+                    // Validate it's at least 2 characters long
+                    if (raw.length < 2) {
+                        greeting.textContent = "Name must be at least 2 characters long.";
+                        greeting.classList.add("error");
+                        return;
+                    }
+
+                    // If valid, output greeting using title case
+                    greeting.textContent = `Hello, ${toTitleCase(raw)}!`;
+                    greeting.classList.remove("error");
+                });
+            </script>
+            
+            <!--this sectionis the unordered list of attributes im known for-->
+                <section class="section">
+                <h2>Professional Summary</h2>
+                    <ul style="font-size: medium;">
+                        <li>Industrial Arts Pre service Teacher</li>
+                        <li>Current University Student at the Australian Catholic University</li>
+                        <li>I have completed 2 Praticums in and around Sydney     </li>
+                        <li>Industry experience in Education sector</li>
+                        <li>Industry experience in Carpentry</li>
+                    </ul>
+            </section>
+
+            <!--this section is an ordered list showing milestones-->
+            <section class="section">
+                <h3> Proffesional Journey</h3>
+                    <ol>
+                        <li>Completed Highschool in 2020</li>
+                        <li>Industry experience as an Apprentice Carpenter while attending TAFE</li>
+                        <li>Began University studies in 2021</li>
+                        <li>Will graduate in 2026 as an Industrial and Design and Tech Major</li>
+                    </ol>
+            </section>
+
+            <!-- New JS feature for updating greeting -->
+           <section class="section"> 
+                <p id="message">Click below to be shown my subject qualifications!</p>
+                <ul class="actions">
+                    <li><a href="javascript:void(0)" id="toggleButton" class="button small" onclick="toggleQualifications()">Show Qualifications</a></li>
+                </ul>
+                <script>
+                    function toggleQualifications() {
+                        const message = document.getElementById("message");
+                        const button = document.getElementById("toggleButton");
+
+                        if (button.textContent === "Show Qualifications") {
+                            message.innerHTML = "I am qualified to teach Timber all the way to Year 12, Food Technologies all the way to Year 12, while also being qualified in Home Economics, Textiles, Metalwork, Electronics, Computing, and Junior Engineering. I also have Professional credits for Geography and Physical Education Subjects.";
+                            button.textContent = "Hide Qualifications";
+                        } else {
+                            message.innerHTML = "Click below to be shown my subject qualifications!";
+                            button.textContent = "Show Qualifications";
+                        }
+                    }
+                </script>
+            </section>
+        </div>
+
+
+</body>
+
+</html>
+	
