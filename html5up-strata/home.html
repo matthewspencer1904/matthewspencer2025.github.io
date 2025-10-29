@@ -1,3 +1,4 @@
+<!-- BASED UPON "STRATA" html5UP TEMPLATE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,8 +38,43 @@
 
         <div id="main">
             <h1>Home</h1>
-                <!--this sectionis the unordered list of attributes im known for-->
-            <section class="section">
+            <!--exercise for title case, min length and status class-->
+           <section class="section">  
+                    <p id="greeting">Welcome!</p>
+                    <input id="nameInput" class="input-spaced" type="text" placeholder="Enter Your Name"> 
+                    
+                    <ul class="actions">
+                        <li><button type="submit" class="button small">Confirm</button></li>
+                    </ul>
+                </section>
+
+                <script>
+                    // Convert to title case
+                    function toTitleCase(s) {
+                        return s.replace(/\w\S*/g, w => w[0].toUpperCase() + w.slice(1).toLowerCase());
+                    }
+
+                    // Wait for button click
+                    document.getElementById("nameBtn").addEventListener("click", () => {
+                        const raw = document.getElementById("nameInput").value.trim();
+                        const greeting = document.getElementById("greeting");
+
+                        // Validate it's at least 2 characters long
+                        if (raw.length < 2) {
+                            greeting.textContent = "Name must be at least 2 characters long.";
+                            greeting.classList.add("error");
+                            return;
+                        }
+
+                        // If valid, output greeting using title case
+                        greeting.textContent = `Hello, ${toTitleCase(raw)}!`;
+                        greeting.classList.remove("error");
+                    });
+                </script>
+            </section>
+            
+            <!--this sectionis the unordered list of attributes im known for-->
+                <section class="section">
                 <h2>Professional Summary</h2>
                     <ul style="font-size: medium;">
                         <li>Industrial Arts Pre service Teacher</li>
@@ -61,15 +97,23 @@
             </section>
 
             <!-- New JS feature for updating greeting -->
-            <section class="section"> 
+           <section class="section"> 
                 <p id="message">Click below to be shown my subject qualifications!</p>
-
                 <ul class="actions">
-                    <li><a href="javascript:void(0)" class="button small" onclick="showGreeting()">Show Qualifications</a></li>
+                    <li><a href="javascript:void(0)" id="toggleButton" class="button small" onclick="toggleQualifications()">Show Qualifications</a></li>
                 </ul>
                 <script>
-                    function showGreeting() {
-                        document.getElementById("message").innerHTML = "I am qualified to teach Timber all the way to Year 12, Food Technologies all the way to Year 12, while also being qualified in Home Economics, Textiles, Metalwork, Electronics, Computing, and Junior Engineering. I also have Professional credits for Geography and Physical Education Subjects";
+                    function toggleQualifications() {
+                        const message = document.getElementById("message");
+                        const button = document.getElementById("toggleButton");
+
+                        if (button.textContent === "Show Qualifications") {
+                            message.innerHTML = "I am qualified to teach Timber all the way to Year 12, Food Technologies all the way to Year 12, while also being qualified in Home Economics, Textiles, Metalwork, Electronics, Computing, and Junior Engineering. I also have Professional credits for Geography and Physical Education Subjects.";
+                            button.textContent = "Hide Qualifications";
+                        } else {
+                            message.innerHTML = "Click below to be shown my subject qualifications!";
+                            button.textContent = "Show Qualifications";
+                        }
                     }
                 </script>
             </section>
